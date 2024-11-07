@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>收音机按钮</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* From Uiverse.io by Cksunandh */
+        .custom-radio-group {
+            --transDur: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1em;
+            margin: 100px auto;
+        }
+
+        .custom-radio-group form {
+            display: flex;
+            gap: 0.1em;
+            max-width: 40em;
+            margin: auto;
+            padding: 0 1em;
+        }
+
+        .custom-radio-group .radio-label {
+            width: 100px;
+            position: relative;
+            display: block;
+            text-align: center;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .custom-radio-group .radio-input {
+            background-image: linear-gradient(#ffffff 33%,
+                    #414751 58%,
+                    #837b52,
+                    #c5baa1,
+                    #c3adaa);
+            border-radius: 0;
+            box-shadow:
+                0.1em 0 0 #2726267f inset,
+                -0.1em 0 0 #27262600 inset,
+                0 0.1em 0 #afa490 inset,
+                0 -0.1em 0 #ffffff3f,
+                0 0.2em 0.5em #0000007f,
+                0 -0.1em 0 #926086 inset,
+                -0.1em -0.2em 0 #ffffff7f inset;
+            cursor: pointer;
+            display: block;
+            margin-bottom: 0.5em;
+            width: 100%;
+            height: 0.8em;
+            transition: box-shadow var(--transDur) ease-in-out;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .custom-radio-group .radio-input:checked {
+            background-image: linear-gradient(#ffffff 33%,
+                    #414751 58%,
+                    #827a7b,
+                    #c0b6ac,
+                    #c3adaa);
+            box-shadow:
+                0.1em 0 0 #272626af inset,
+                -0.1em 0 0 #272626 inset,
+                0 0.1em 0 #847a62 inset,
+                0 -0.1em 0 #ffffff3f,
+                0 0.1em 0 #ffffff7f,
+                0 -0.1em 0 #722257 inset,
+                -0.1em -0.2em 0 #ffffff7f inset;
+        }
+
+        .custom-radio-group .radio-input:checked+span {
+            opacity: 1;
+        }
+
+        .custom-radio-group .radio-input:focus {
+            outline: transparent;
+        }
+
+        .custom-radio-group .radio-input+span {
+            opacity: 0.65;
+            transition: opacity var(--transDur) ease-in-out;
+        }
+
+        /* First and last input specific styles */
+        .custom-radio-group .radio-label:first-child .radio-input {
+            border-radius: 0.4em 0 0 0.4em;
+        }
+
+        .custom-radio-group .radio-label:last-child .radio-input {
+            border-radius: 0 0.4em 0.4em 0;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .custom-radio-group .radio-input {
+                background-image: linear-gradient(#ffffff 33%,
+                        #414751 58%,
+                        #837b52,
+                        #c5baa1,
+                        #c3adaa);
+                box-shadow:
+                    0.1em 0 0 #2726267f inset,
+                    -0.1em 0 0 #27262600 inset,
+                    0 0.1em 0 #afa490 inset,
+                    0 -0.1em 0 #0000001f,
+                    0 0.2em 0.5em #0000007f,
+                    0 -0.1em 0 #926086 inset,
+                    -0.1em -0.2em 0 #ffffff7f inset;
+            }
+
+            .custom-radio-group .radio-input:checked {
+                background-image: linear-gradient(#ffffff 33%,
+                        #414751 58%,
+                        #827a7b,
+                        #c0b6ac,
+                        #c3adaa);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="custom-radio-group">
+        <form>
+            <label class="radio-label">
+                <input type="radio" name="band" value="am" checked="" class="radio-input" />
+                <span>AM</span>
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="band" value="fm" class="radio-input" />
+                <span>FM</span>
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="band" value="sw" class="radio-input" />
+                <span>SW</span>
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="band" value="mw" class="radio-input" />
+                <span>MW</span>
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="band" value="lw" class="radio-input" />
+                <span>LW</span>
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="band" value="lw" class="radio-input" />
+                <span>LW</span>
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="band" value="lw" class="radio-input" />
+                <span>LW</span>
+            </label>
+        </form>
+    </div>
+
+</body>
+
+</html>

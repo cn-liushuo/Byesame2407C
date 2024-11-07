@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 1800px;
+            border: 10px solid pink;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>霍骅</p>
+    </div>
+    <h2>你好</h2>
+    <div class="box">
+
+    </div>
+    <button>返回到指定元素</button>
+    <script>
+        let gundong = (a) => {
+            document.querySelector(a).scrollIntoView({behavior: "smooth"})
+        }
+        document.querySelector("button").addEventListener("click",function () {
+            gundong("h2")
+        })
+    </script>
+</body>
+</html>

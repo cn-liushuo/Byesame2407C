@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>百杉健康管理系统</title>
+  <style>
+    body {
+      background-color: #ccc;
+    }
+
+    .box {
+      width: 400px;
+      height: 400px;
+      background-color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    input {
+      outline: none;
+    }
+
+    /* tab切换 */
+    .box-head span {
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      display: inline-block;
+      text-align: center;
+      background-color: #eee;
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .box-main>div {
+      /* width: 340px; */
+      height: 300px;
+      /* border: 1px  solid #000; */
+      display: none;
+    }
+
+    .box-main>div:first-child {
+      display: block;
+    }
+
+    .box-head .active {
+      background-color: red;
+    }
+
+    /* 标题 */
+    .tit {
+      text-align: center;
+      font-size: 18px;
+      color: #828081;
+      padding: 20px;
+    }
+
+    /* 表单 */
+    .login {
+      padding: 20px;
+    }
+
+    .login .uname input,
+    .login .pword input {
+      width: 340px;
+      height: 25px;
+    }
+
+    .login .uname,
+    .login .pword {
+      padding-bottom: 20px;
+    }
+
+    .login .checkbox {
+      text-align: left;
+      padding-bottom: 20px;
+    }
+
+    .login .btn input {
+      width: 350px;
+      height: 50px;
+      background-color: #409efe;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="tit">百杉健身后台管理系统</div>
+    <div class="box-head">
+      <span class="active">登陆</span>
+      <span>注册</span>
+    </div>
+    <div class="box-main">
+      <div class="login">
+        <div class="uname">
+          <input type="text">
+        </div>
+        <div class="pword">
+          <input type="password">
+        </div>
+        <div class="checkbox">
+          <input type="checkbox">记住密码
+        </div>
+        <div class="btn">
+          <input type="submit" value="登陆">
+        </div>
+      </div>
+      <div class="login">
+        <div class="uname">
+          <input type="text">
+        </div>
+        <div class="pword">
+          <input type="password">
+        </div>
+        <div class="btn">
+          <input type="submit" value="注册">
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+<!-- <script src="./tab.js"></script> -->
+<script type="text/javascript">
+  function tab(domBtn, domBox) {
+    /*
+          思路：
+              1.点击选项卡 点击哪一个选项就给哪个添加类名active 其他的选项清空这个类名
+              2.选项卡显示的内容和选项是一一对应的
+      */
+    // 获取所有的选项
+    var btns = document.querySelectorAll(domBtn);
+    // 获取切换内容的div
+    var oDiv = document.querySelectorAll(domBox);
+    // console.log(btns,oDiv)
+    for (var i = 0; i < btns.length; i++) {
+      // 给每一个span添加一个自定义属性
+      btns[i].setAttribute("data-index", i);
+      // 给每一个span选项添加一个点击事件
+      btns[i].onclick = function () {
+        // this指向的是当前函数的调用者
+        // console.log(this)
+        for (var j = 0; j < btns.length; j++) {
+          // 将所有选项的类名给他清空
+          btns[j].className = "";
+          // 点击的时候先让所有的div都隐藏
+          oDiv[j].style.display = "none";
+        }
+        // 给当前点击的添加active类名
+        this.className = "active";
+        // 获取的是当前点击选项的自定义属性 0 1 2
+        // console.log(this.getAttribute('data-index'))
+        this.getAttribute("data-index");
+        oDiv[this.getAttribute("data-index")].style.display = "block";
+      };
+    }
+  }
+  // 调用函数
+  // 传两个参数：
+  // 第一个参数：所有的tab选项 也就是box-head下面的所有的span
+  // 第二个参数：所有tab选项对应的内容 也就是box-main下面所有的div
+  tab('.box .box-head span', '.box .box-main>div')
+</script>
+
+</html>

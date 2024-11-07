@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .game-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="game-container">
+        <h1>猜数字游戏</h1>
+        <p>我想了一个 1 到 100 之间的数字，你来猜猜看。</p>
+        <input type="number" id="guessInput">
+        <button onclick="checkGuess()">猜一猜</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        let targetNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+
+        function checkGuess() {
+            const guessInput = document.getElementById('guessInput');
+            const guess = parseInt(guessInput.value);
+            const messageElement = document.getElementById('message');
+
+            if (isNaN(guess) || guess < 1 || guess > 100) {
+                messageElement.textContent = '请输入一个 1 到 100 之间的数字。';
+            } else {
+                attempts++;
+                if (guess === targetNumber) {
+                    messageElement.textContent = `恭喜你猜对了！你用了 ${attempts} 次尝试。`;
+                } else if (guess < targetNumber) {
+                    messageElement.textContent = '猜小了！再试试。';
+                } else {
+                    messageElement.textContent = '猜大了！再试试。';
+                }
+                guessInput.value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>
