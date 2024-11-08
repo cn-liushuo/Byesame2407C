@@ -1,5 +1,8 @@
 # demo2
 
+## node -v
+16.19.0
+
 ## Project setup
 ```
 npm install
