@@ -1,15 +1,7 @@
 <template>
-    <div>
-        <el-menu
-      class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
-      background-color="#545c64"
-      text-color="#fff"
-      :default-active="$route.path"
-      :collapse="isCollapse"
-      router
-      active-text-color="#ffd04b">
+  <div>
+    <el-menu class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" background-color="#545c64"
+      text-color="#fff" :default-active="$route.path" :collapse="isCollapse" router active-text-color="#ffd04b">
       <el-menu-item index="/home/hello">
         <i class="el-icon-menu"></i>
         <span slot="title">helloWorld</span>
@@ -55,31 +47,31 @@
         <span slot="title">线索管理</span>
       </el-menu-item>
     </el-menu>
-    </div>
+  </div>
 </template>
 
 <script>
-  export default {
-    created(){
-        console.log(this.$route);
-    },  
-    methods: {
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
-      }
+export default {
+  created() {
+    console.log(this.$route)
+  },
+  methods: {
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath)
     },
-    computed: {
-      isCollapse(){
-        return this.$store.state.isCollapse
-      }
+    handleClose(key, keyPath) {
+      console.log(key, keyPath)
+    }
+  },
+  computed: {
+    isCollapse() {
+      return this.$store.state.isCollapse
     }
   }
+}
 </script>
 <style scoped lang="scss">
-    ::v-deep .el-menu{
-        border: 0 !important;
-    }
+::v-deep .el-menu {
+  border: 0 !important;
+}
 </style>
